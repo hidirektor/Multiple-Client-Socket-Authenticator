@@ -20,18 +20,12 @@ public class Client {
             this.username = username;
             this.password = password;
         } catch (IOException e) {
-            closeEverything(socket, bufferedReader, bufferedWriter);
+            closeEverything(socket);
         }
     }
 
-    public void closeEverything(Socket socket, BufferedReader bufferedReader, BufferedWriter bufferedWriter) {
+    public void closeEverything(Socket socket) {
         try {
-            if(bufferedReader != null) {
-                bufferedReader.close();
-            }
-            if(bufferedWriter != null) {
-                bufferedWriter.close();
-            }
             if(socket != null) {
                 socket.close();
             }
